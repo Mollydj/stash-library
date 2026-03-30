@@ -1,24 +1,24 @@
-import logo from "./logo.svg";
-import "./App.css";
-
+import { Routes, Route } from "react-router-dom";
+import StashDashboard from "./Content/Stash/StashDashboard.tsx";
+import SwatchDashboard from "./Content/Swatches/SwatchDashboard.tsx";
+import StashHeader from "./Components/Header/Header.tsx";
+import StashFooter from "./Components/Footer/Footer.tsx";
+import { Layout } from "antd";
+import { Content } from "antd/es/layout/layout";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React goes here
-        </a>
-      </header>
-    </div>
+    <>
+      <Layout>
+        <StashHeader />
+        <Content>
+          <Routes>
+            <Route path="/" element={<StashDashboard />} />
+            <Route path="/swatches" element={<SwatchDashboard />} />
+          </Routes>
+        </Content>
+        <StashFooter />
+      </Layout>
+    </>
   );
 }
 
